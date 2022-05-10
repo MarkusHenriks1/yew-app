@@ -13,15 +13,13 @@ impl Component for CounterComponent {
     type Properties = ();
 
     fn create(_ctx: &Context<Self>) -> Self {
-        Self {
-            count: 0,
-        }
+        Self { count: 0 }
     }
 
     fn update(&mut self, _ctx: &Context<Self>, msg: Self::Message) -> bool {
         match msg {
             Msg::AddOne => {
-                self.count += 2;
+                self.count += 3;
                 true // re-render component
             }
         }
@@ -32,7 +30,7 @@ impl Component for CounterComponent {
         html! {
             <div class="container">
                 <p>{ self.count }</p>
-                <button onclick={link.callback(|_| Msg::AddOne)}>{ "+2" }</button>
+                <button onclick={link.callback(|_| Msg::AddOne)}>{ "+3" }</button>
             </div>
         }
     }
